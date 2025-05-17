@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+#root{
+    font-family: 'Inter',sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.scrollbar-none {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; 
+  }
