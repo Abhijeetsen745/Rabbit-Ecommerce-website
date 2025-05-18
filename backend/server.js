@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import "dotenv/config";
 import { connectDb } from "./config/db.js";
 import userRoutes from './routes/userRoutes.js'
@@ -20,7 +21,7 @@ app.use(cors({
   origin: 'https://rabbit-ecommerce-website-fhju.vercel.app',
   credentials: true
 }));
-app.use('/static',express.static('public'))
+app.use('/static', express.static(path.resolve('public')));
 
 //connect to db
 connectDb();
