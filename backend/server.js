@@ -16,7 +16,10 @@ import adminOrderRoutes from './routes/adminOrderRoutes.js'
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://rabbit-ecommerce-website-fhju.vercel.app',
+  credentials: true
+}));
 app.use('/static',express.static('public'))
 
 //connect to db
