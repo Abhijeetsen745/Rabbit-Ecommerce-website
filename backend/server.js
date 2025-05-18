@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from "url";
 import "dotenv/config";
 import { connectDb } from "./config/db.js";
 import userRoutes from './routes/userRoutes.js'
@@ -14,6 +15,9 @@ import adminRoutes from './routes/adminRoutes.js'
 import productAdminRotues from './routes/productAdminRotues.js'
 import adminOrderRoutes from './routes/adminOrderRoutes.js'
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
@@ -21,7 +25,7 @@ app.use(cors({
   origin: 'https://rabbit-ecommerce-website-fhju.vercel.app',
   credentials: true
 }));
-app.use('/static', express.static(path.resolve('public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 //connect to db
 connectDb();
