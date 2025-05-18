@@ -9,6 +9,10 @@
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
       "dest": "server.js"
     }
